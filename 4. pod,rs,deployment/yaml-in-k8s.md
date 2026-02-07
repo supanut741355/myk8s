@@ -69,7 +69,20 @@ spec:
 
 Run create by k8s cli
 ```
+$ kubectl create -f [PATH_TO_FILE]
+
+eg.
+
 $ kubectl create -f pod-definition.yaml
+
+or
+
+$ kubectl apply -f [PATH_TO_FILE]
+
+eg.
+
+$ kubectl apply -f pod-definition.yaml
+
 ```
 
 # Get pod
