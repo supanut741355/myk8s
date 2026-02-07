@@ -99,3 +99,7 @@ using list
   transmission: manual
   price: $22,000
 ```
+
+
+
+! in the real worlod of k8s -> yaml used for config the key value of k8s resource (deployment, svc, ...)
