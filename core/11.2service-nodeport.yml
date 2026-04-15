@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: myapp-pod
+  lable:
+    app: myapp
+    type: front-end
+
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: myapp-service
+
+spec:
+  type: NodePort
+  ports:
+    - targetPort: 8080
+      port: 8080
+      nodePort: 30008
+
+  selector:
+    app: myapp
+    type: front-end
