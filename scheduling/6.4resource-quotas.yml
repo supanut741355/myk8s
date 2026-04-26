@@ -1,0 +1,12 @@
+## resource-qoutas is seted as namespace level = quotas of every k8s resouce in specific namespace
+apiVersion: v1
+kind: ResourceQuota
+metdata:
+  name: my-resource-quota
+  namespace: xxxx
+spec:
+  hard:
+    request.cpu: 4
+    request.memory: 4Gi
+    limit.cpu: 10
+    limit.memory: 10Gi

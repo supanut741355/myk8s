@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: simple-pod
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx
+  resources:
+    requests:
+      memory: "200Mi"
+      cpu: 1
+    limits:
+      memory: "500Mi"
+      cpu: 2
