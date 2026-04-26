@@ -1,0 +1,32 @@
+## This deployment we need to force pod is place only node with label color=blue by using nodeAffinity
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blue
+
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+        app: blue
+  template:
+    metadata:
+      name: nginx-pod
+      labels:
+        app: blue
+    spec:
+      containers:
+      - name: nginx-container
+        image: nginx
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+              - matchExpressions:
+                  - key: color
+                    operator: In
+                    values:
+                      - blue
+
+
