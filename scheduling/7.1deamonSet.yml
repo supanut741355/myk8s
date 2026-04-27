@@ -1,6 +1,6 @@
 ## structure like a replicaSet
 apiVersion: apps/v1
-kind: DemonSet
+kind: DaemonSet
 metadata:
   name: monitoring-deamon
 
@@ -16,3 +16,27 @@ spec:
       containers:
         - name: monitoring-agent
           image: prometheus
+
+---
+# Deploy a DaemonSet for FluentD Logging.
+# Name: elasticsearch
+# Namespace: kube-system
+#Image: registry.k8s.io/fluentd-elasticsearch:1.20
+
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: elasticsearch
+  namespace: kube-system
+spec:
+  selector:
+    matchLabels:
+      app: fluentd-ds
+  template:
+    metadata:
+      labels:
+        app: fluentd-ds
+    spec:
+      containers:
+        - name: fluent-container
+          image: registry.k8s.io/fluentd-elasticsearch:1.20
