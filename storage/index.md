@@ -1,0 +1,5 @@
+- Persistent Volumes (PV)
+- Persistent Volumes Claims (PVC)
+- Config app with Persistent storage
+- Access mode for volumes
+- Kubernetes Storage Object (KSO)
