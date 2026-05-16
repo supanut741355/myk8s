@@ -9,12 +9,22 @@ spec:
     storage: 1Gi
   hostPath:
     path: /tmp/data
+  persistentVolumeReclaimPolicy: retain
   awsElasticBlockStore:
     volumeID: [VOLUME-ID]
     fsType: ext4
 
 ---
-
-```
-$ kubectl apply -f pv-definition.yaml
-```
+apiVersion: v1
+kind: PersistenVolume
+metadata:
+  name: pv-log
+spec:
+  accessModes: 
+  - ReadWriteMany
+  persistentVolumeReclaimPolicy: retian
+  capacity:
+    storage: 100Mi
+  hostPath:
+    path: /pv/log
+  
