@@ -51,15 +51,28 @@ roleRef:
 ```
 
 
-## View RBAC
+### View RBAC
 ```
 $ kubectl get roles
 
 
 $ kubectl get rolebindings
+```
 
-
+### Description RBASE
+```
 $ kubectl description role [ROLE_NAME]
 
 $ kubectl description rolebinding [ROLE_BINDING_NAME]
+```
+
+### Check access
+```
+$ kubectl auth can-i [CMD RESOURCE]
+
+eg.
+
+$ kubectl auth can-i create deployments
+
+$ kubectl auth can-i delete nodes
 ```
