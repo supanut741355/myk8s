@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: dashboard-sa
+  namespace: default
+
+---
+apiVersion: v1
+metadata:
+  name: my-kube-dashboard
+space:
+  containers:
+    - name: my-k8s-dashboard
+      image: my-k8s-dashboard
+  serviceAccountName: dashboard-sa
