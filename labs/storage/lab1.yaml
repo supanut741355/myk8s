@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: lab1
+spec:
+  containers:
+    - name: writer
+      image: busybox
+      command: ["sh", "-c", "echo hello > /data/note.txt; sleep 3600"]
+      volumeMounts:
+        - name: scratch
+          mountPath: /data
+  volumes:
+    - name: scratch
+      emptyDir: {}
