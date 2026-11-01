@@ -1,0 +1,30 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: lab4-pvc
+  namespace: storage
+spec:
+  storageClassName: keep-data
+  volumeName: pvc-683ab63b-9d18-4fcf-a535-9b9e37742391
+  accessModes: ["ReadWriteOnce"]
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: lab4
+  namespace: storage
+spec:
+  containers:
+    - name: app
+      image: busybox
+      command: ["sh", "-c", "sleep 3600"]
+      volumeMounts:
+        - name: mydata
+          mountPath: /data
+  volumes:
+    - name: mydata
+      persistentVolumeClaim:
+        claimName: lab4-pvc
