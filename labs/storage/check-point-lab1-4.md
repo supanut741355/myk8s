@@ -5,3 +5,6 @@ Lab	| สิ่งที่ได้เรียนรู้
 2	| PVC/PV/StorageClass และ dynamic provisioning
 3	| Reclaim policy: Delete vs Retain
 4	| กู้ PV ที่ Released ด้วยการล้าง claimRef + volumeName
+
+---
+ต่อไป ดูต่อเรื่อง Access Modes (ReadWriteOnce vs ReadWriteMany) และ StatefulSet ซึ่งเป็นวิธีที่ฐานข้อมูลจริงใช้ storage ใน k8s
